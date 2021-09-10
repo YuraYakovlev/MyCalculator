@@ -8,9 +8,11 @@
     android:padding="8dp"
     tools:context=".MainActivity">
 
+
+
     <EditText
         android:id="@+id/input_and_result"
-        android:layout_width="match_parent"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textSize="@dimen/et_text_size"
@@ -20,59 +22,14 @@
         tools:hint="Результат" />
 
     <Button
-        android:id="@+id/btn_discharge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundbutton"
-        android:text="@string/c"
-        android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_plus_or_minus"
-        app:layout_constraintStart_toStartOf="@id/input_and_result"
-        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
-
-    <Button
-        android:id="@+id/btn_plus_or_minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundbutton"
-        android:text="@string/plus_or_minus"
-        android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_percent"
-        app:layout_constraintStart_toEndOf="@id/btn_discharge"
-        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
-
-    <Button
-        android:id="@+id/btn_percent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundbutton"
-        android:text="@string/percent"
-        android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_division"
-        app:layout_constraintStart_toEndOf="@id/btn_plus_or_minus"
-        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
-
-    <Button
-        android:id="@+id/btn_division"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundbutton"
-        android:text="@string/division"
-        android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toEndOf="@id/input_and_result"
-        app:layout_constraintStart_toEndOf="@id/btn_percent"
-        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
-
-    <Button
         android:id="@+id/btn_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbutton"
         android:text="@string/one"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_two"
         app:layout_constraintStart_toStartOf="@id/input_and_result"
-        app:layout_constraintTop_toBottomOf="@id/btn_discharge" />
+        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
 
     <Button
         android:id="@+id/btn_two"
@@ -81,9 +38,8 @@
         android:background="@drawable/roundbutton"
         android:text="@string/two"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_three"
         app:layout_constraintStart_toEndOf="@id/btn_one"
-        app:layout_constraintTop_toBottomOf="@id/btn_plus_or_minus" />
+        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
 
     <Button
         android:id="@+id/btn_three"
@@ -92,20 +48,19 @@
         android:background="@drawable/roundbutton"
         android:text="@string/three"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_multiplication"
         app:layout_constraintStart_toEndOf="@id/btn_two"
-        app:layout_constraintTop_toBottomOf="@id/btn_percent" />
+        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
 
     <Button
-        android:id="@+id/btn_multiplication"
+        android:id="@+id/btn_discharge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbutton"
-        android:text="@string/multiplication"
+        android:text="@string/c"
         android:textSize="@dimen/btn_text_size"
         app:layout_constraintEnd_toEndOf="@id/input_and_result"
         app:layout_constraintStart_toEndOf="@id/btn_three"
-        app:layout_constraintTop_toBottomOf="@id/btn_division" />
+        app:layout_constraintTop_toBottomOf="@id/input_and_result" />
 
     <Button
         android:id="@+id/btn_four"
@@ -114,7 +69,6 @@
         android:background="@drawable/roundbutton"
         android:text="@string/four"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_five"
         app:layout_constraintStart_toStartOf="@id/input_and_result"
         app:layout_constraintTop_toBottomOf="@id/btn_one" />
 
@@ -125,7 +79,6 @@
         android:background="@drawable/roundbutton"
         android:text="@string/five"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_six"
         app:layout_constraintStart_toEndOf="@id/btn_four"
         app:layout_constraintTop_toBottomOf="@id/btn_two" />
 
@@ -136,20 +89,18 @@
         android:background="@drawable/roundbutton"
         android:text="@string/six"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_minus"
         app:layout_constraintStart_toEndOf="@id/btn_five"
         app:layout_constraintTop_toBottomOf="@id/btn_three" />
 
     <Button
-        android:id="@+id/btn_minus"
+        android:id="@+id/btn_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbutton"
-        android:text="@string/minus"
+        android:text="@string/plus"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toEndOf="@id/input_and_result"
         app:layout_constraintStart_toEndOf="@id/btn_six"
-        app:layout_constraintTop_toBottomOf="@id/btn_multiplication" />
+        app:layout_constraintTop_toBottomOf="@id/btn_discharge" />
 
     <Button
         android:id="@+id/btn_seven"
@@ -158,7 +109,6 @@
         android:background="@drawable/roundbutton"
         android:text="@string/seven"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_eight"
         app:layout_constraintStart_toStartOf="@id/input_and_result"
         app:layout_constraintTop_toBottomOf="@id/btn_four" />
 
@@ -169,7 +119,6 @@
         android:background="@drawable/roundbutton"
         android:text="@string/eight"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_nine"
         app:layout_constraintStart_toEndOf="@id/btn_seven"
         app:layout_constraintTop_toBottomOf="@id/btn_five" />
 
@@ -180,44 +129,29 @@
         android:background="@drawable/roundbutton"
         android:text="@string/nine"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toStartOf="@id/btn_plus"
         app:layout_constraintStart_toEndOf="@id/btn_eight"
         app:layout_constraintTop_toBottomOf="@id/btn_six" />
 
     <Button
-        android:id="@+id/btn_plus"
+        android:id="@+id/btn_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbutton"
-        android:text="@string/plus"
+        android:text="@string/minus"
         android:textSize="@dimen/btn_text_size"
-        app:layout_constraintEnd_toEndOf="@id/input_and_result"
         app:layout_constraintStart_toEndOf="@id/btn_nine"
-        app:layout_constraintTop_toBottomOf="@id/btn_minus" />
+        app:layout_constraintTop_toBottomOf="@id/btn_plus" />
 
     <Button
         android:id="@+id/btn_zero"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/oval_button"
-        android:text="@string/zero"
-        android:textSize="@dimen/btn_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/btn_eight"
-        app:layout_constraintStart_toStartOf="@id/btn_seven"
-        app:layout_constraintTop_toBottomOf="@id/btn_seven" />
-
-    <Button
-        android:id="@+id/btn_comma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbutton"
-        android:text="@string/comma"
+        android:text="@string/zero"
         android:textSize="@dimen/btn_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/btn_nine"
-        app:layout_constraintStart_toStartOf="@id/btn_nine"
-        app:layout_constraintTop_toBottomOf="@id/btn_nine" />
+        app:layout_constraintStart_toStartOf="@id/input_and_result"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven" />
 
     <Button
         android:id="@+id/btn_equals"
@@ -226,10 +160,31 @@
         android:background="@drawable/roundbutton"
         android:text="@string/equals"
         android:textSize="@dimen/btn_text_size"
+        app:layout_constraintStart_toEndOf="@id/btn_zero"
+        app:layout_constraintTop_toBottomOf="@id/btn_eight" />
+
+    <Button
+        android:id="@+id/btn_division"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbutton"
+        android:text="@string/division"
+        android:textSize="@dimen/btn_text_size"
+        app:layout_constraintStart_toEndOf="@id/btn_equals"
+        app:layout_constraintTop_toBottomOf="@id/btn_nine" />
+
+
+    <Button
+        android:id="@+id/btn_multiplication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbutton"
+        android:text="@string/multiplication"
+        android:textSize="@dimen/btn_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/btn_plus"
-        app:layout_constraintStart_toStartOf="@id/btn_plus"
-        app:layout_constraintTop_toBottomOf="@id/btn_plus" />
+        app:layout_constraintEnd_toEndOf="@id/input_and_result"
+        app:layout_constraintStart_toEndOf="@id/btn_division"
+        app:layout_constraintTop_toBottomOf="@id/btn_minus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,29 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
+    TextView textView;
+    CalculateLogic calculateLogic = new CalculateLogic();
 
+    int[] numbers = {
+            R.id.btn_one,
+            R.id.btn_two,
+            R.id.btn_three,
+            R.id.btn_four,
+            R.id.btn_five,
+            R.id.btn_six,
+            R.id.btn_seven,
+            R.id.btn_eight,
+            R.id.btn_nine,
+            R.id.btn_zero
+    };
+
+    int[] operation = {
+            R.id.btn_plus,
+            R.id.btn_minus,
+            R.id.btn_multiplication,
+            R.id.btn_division,
+            R.id.btn_equals,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,73 +40,36 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.input_and_result);
 
-        findViewById(R.id.btn_one).setOnClickListener(clickListener);
-        findViewById(R.id.btn_two).setOnClickListener(clickListener);
-        findViewById(R.id.btn_three).setOnClickListener(clickListener);
-        findViewById(R.id.btn_four).setOnClickListener(clickListener);
-        findViewById(R.id.btn_five).setOnClickListener(clickListener);
-        findViewById(R.id.btn_six).setOnClickListener(clickListener);
-        findViewById(R.id.btn_seven).setOnClickListener(clickListener);
-        findViewById(R.id.btn_eight).setOnClickListener(clickListener);
-        findViewById(R.id.btn_nine).setOnClickListener(clickListener);
-        findViewById(R.id.btn_zero).setOnClickListener(clickListener);
-        findViewById(R.id.btn_plus).setOnClickListener(clickListener);
-        findViewById(R.id.btn_minus).setOnClickListener(clickListener);
-        findViewById(R.id.btn_multiplication).setOnClickListener(clickListener);
-        findViewById(R.id.btn_division).setOnClickListener(clickListener);
-        findViewById(R.id.btn_equals).setOnClickListener(clickListener);
-        findViewById(R.id.btn_percent).setOnClickListener(clickListener);
-        findViewById(R.id.btn_discharge).setOnClickListener(clickListener);
-        findViewById(R.id.btn_comma).setOnClickListener(clickListener);
-        findViewById(R.id.btn_plus_or_minus).setOnClickListener(clickListener);
-    }
-
-    View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String argOne;
-            switch (v.getId()) {
-                case R.id.btn_one:
-                    argOne = "1";
-                    break;
-                case R.id.btn_two:
-                    argOne = "2";
-                    break;
-                case R.id.btn_three:
-                    argOne = "3";
-                    break;
-                case R.id.btn_four:
-                    argOne = "4";
-                    break;
-                case R.id.btn_five:
-                    argOne = "5";
-                    break;
-                case R.id.btn_six:
-                    argOne = "6";
-                    break;
-                case R.id.btn_seven:
-                    argOne = "7";
-                    break;
-                case R.id.btn_eight:
-                    argOne = "8";
-                    break;
-                case R.id.btn_nine:
-                    argOne = "9";
-                    break;
-                case R.id.btn_zero:
-                    argOne = "0";
-                    break;
-                case R.id.btn_comma:
-                    argOne = ".";
-                    break;
-                case R.id.btn_discharge:
-                    textView.setText("");
-                    return;
-                default:
-                    argOne = "";
+        View.OnClickListener numberClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateLogic.numberClick(v.getId());
+                textView.setText(calculateLogic.getText());
             }
-            String str = textView.getText() + argOne;
-            textView.setText(str);
+        };
+
+        View.OnClickListener operationClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateLogic.operationClick(v.getId());
+                textView.setText(calculateLogic.getText());
+            }
+        };
+
+        for (int i = 0; i < numbers.length; i++) {
+            findViewById(numbers[i]).setOnClickListener(numberClickListener);
         }
-    };
+
+        for (int i = 0; i < operation.length; i++) {
+            findViewById(operation[i]).setOnClickListener(operationClickListener);
+        }
+
+        findViewById(R.id.btn_discharge).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateLogic.discharge();
+                textView.setText(calculateLogic.getText());
+            }
+        });
+    }
 }
