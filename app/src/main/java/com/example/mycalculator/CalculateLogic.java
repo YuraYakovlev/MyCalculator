@@ -4,8 +4,8 @@ public class CalculateLogic {
 
     StringBuilder stringBuilder = new StringBuilder();
 
-    private int firstArg;
-    private int secondArg;
+    private double firstArg;
+    private double secondArg;
     private char symbolOperation;
     private State state;
 
@@ -27,6 +27,7 @@ public class CalculateLogic {
                 stringBuilder.setLength(0);
                 state = State.FIRST_NUMBER;
             }
+
             if (state == State.OPERATION) {
                 stringBuilder.setLength(0);
                 state = State.SECOND_NUMBER;
@@ -66,15 +67,15 @@ public class CalculateLogic {
                     return;
             }
             if (state == State.FIRST_NUMBER) {
-                firstArg = Integer.parseInt(stringBuilder.toString());
+                firstArg = Double.parseDouble(stringBuilder.toString());
             } else if (state == State.SECOND_NUMBER) {
-                secondArg = Integer.parseInt(stringBuilder.toString());
+                secondArg = Double.parseDouble(stringBuilder.toString());
             }
         }
     }
 
     public void operationClick(int buttonId) {
-        if (state == State.FIRST_NUMBER) {
+        if (state == State.FIRST_NUMBER || state == State.EQUALS) {
             state = State.OPERATION;
             switch (buttonId) {
                 case R.id.btn_plus:
@@ -94,13 +95,13 @@ public class CalculateLogic {
         if(state == State.SECOND_NUMBER) {
             switch (buttonId) {
                 case R.id.btn_equals:
-                    equals(firstArg, secondArg, symbolOperation);
+                    equals(firstArg, secondArg);
                     break;
             }
         }
     }
 
-    public void equals(int agrOne, int argTwo, char symbolOperation) {
+    public void equals(double agrOne, double argTwo) {
         if (firstArg != 0 && symbolOperation != ' ') {
             state = State.EQUALS;
             stringBuilder.setLength(0);
@@ -114,6 +115,7 @@ public class CalculateLogic {
                 firstArg = agrOne / argTwo;
             }
         }
+        symbolOperation = ' ';
     }
 
     public void discharge() {
