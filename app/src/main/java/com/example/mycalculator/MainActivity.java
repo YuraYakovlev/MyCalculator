@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        for (int i = 0; i < numbers.length; i++) {
-            findViewById(numbers[i]).setOnClickListener(numberClickListener);
+        for (int number : numbers) {
+            findViewById(number).setOnClickListener(numberClickListener);
         }
 
-        for (int i = 0; i < operation.length; i++) {
-            findViewById(operation[i]).setOnClickListener(operationClickListener);
+        for (int oper : operation) {
+            findViewById(oper).setOnClickListener(operationClickListener);
         }
 
         findViewById(R.id.btn_discharge).setOnClickListener(new View.OnClickListener() {

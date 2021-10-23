@@ -7,31 +7,19 @@ public class CalculateLogic {
     private double firstArg;
     private double secondArg;
     private char symbolOperation;
-    private State state;
-
-    public CalculateLogic() {
-        state = State.FIRST_NUMBER;
-    }
-
-    private enum State {
-        FIRST_NUMBER,
-        OPERATION,
-        SECOND_NUMBER,
-        EQUALS
-    }
+    State state = State.FIRST_NUMBER;
 
     public void numberClick(int buttonId) {
         if (stringBuilder.length() < 9) {
-
             if (state == State.EQUALS) {
                 stringBuilder.setLength(0);
                 state = State.FIRST_NUMBER;
             }
-
             if (state == State.OPERATION) {
                 stringBuilder.setLength(0);
                 state = State.SECOND_NUMBER;
             }
+
             switch (buttonId) {
                 case R.id.btn_one:
                     stringBuilder.append("1");
@@ -92,7 +80,7 @@ public class CalculateLogic {
                     break;
             }
         }
-        if(state == State.SECOND_NUMBER) {
+        if (state == State.SECOND_NUMBER) {
             switch (buttonId) {
                 case R.id.btn_equals:
                     equals(firstArg, secondArg);
